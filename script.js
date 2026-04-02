@@ -3,26 +3,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobiilivalikon toiminnallisuus
     const navbarToggle = document.querySelector('.navbar-toggle');
-    const navbarLinks = document.querySelector('.navbar-links');
+    const navbarRight = document.querySelector('.navbar-right');
 
-    if (navbarToggle && navbarLinks) {
+    if (navbarToggle && navbarRight) {
         navbarToggle.addEventListener('click', function() {
-            navbarLinks.classList.toggle('active');
+            navbarRight.classList.toggle('active');
             navbarToggle.classList.toggle('active');
         });
 
         // Sulje valikko kun klikataan linkkiä
-        navbarLinks.querySelectorAll('a').forEach(function(link) {
+        navbarRight.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
-                navbarLinks.classList.remove('active');
+                navbarRight.classList.remove('active');
                 navbarToggle.classList.remove('active');
             });
         });
 
         // Sulje valikko kun klikataan ulkopuolelle
         document.addEventListener('click', function(event) {
-            if (!navbarToggle.contains(event.target) && !navbarLinks.contains(event.target)) {
-                navbarLinks.classList.remove('active');
+            if (!navbarToggle.contains(event.target) && !navbarRight.contains(event.target)) {
+                navbarRight.classList.remove('active');
                 navbarToggle.classList.remove('active');
             }
         });
@@ -83,4 +83,21 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.card-animated').forEach(card => {
         observer.observe(card);
     });
+
+    // Fade-in animaatiot sisältöelementeille
+    document.querySelectorAll('.fade-in').forEach(element => {
+        observer.observe(element);
+    });
+
+    // Navbar scroll-efekti (etusivulla)
+    const navbarHero = document.querySelector('.navbar-hero');
+    if (navbarHero) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbarHero.classList.add('navbar-scrolled');
+            } else {
+                navbarHero.classList.remove('navbar-scrolled');
+            }
+        });
+    }
 });

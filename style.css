@@ -52,6 +52,12 @@ body {
     width: auto;
 }
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
 .navbar-links {
     display: flex;
     gap: 32px;
@@ -73,6 +79,67 @@ body {
 .navbar-links a.active {
     color: #2563eb;
 }
+
+.btn-nav {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+}
+
+/* Etusivun navbar - läpinäkyvä alkutila */
+.navbar-hero {
+    position: fixed;
+    background-color: transparent;
+    border-bottom: none;
+    transition: background-color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+}
+
+/* Valkoinen logo läpinäkyvällä taustalla */
+.navbar-hero .navbar-logo img {
+    filter: brightness(0) invert(1);
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Valkoiset linkit läpinäkyvällä taustalla */
+.navbar-hero .navbar-links a {
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-hero .navbar-links a:hover,
+.navbar-hero .navbar-links a.active {
+    color: #93c5fd;
+}
+
+/* Valkoinen hamburger-valikko */
+.navbar-hero .navbar-toggle span {
+    background-color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+/* Navbar scrollattu - valkoinen tausta, musta logo */
+.navbar-hero.navbar-scrolled {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar-hero.navbar-scrolled .navbar-logo img {
+    filter: none;
+}
+
+.navbar-hero.navbar-scrolled .navbar-links a {
+    color: #1a1a2e;
+}
+
+.navbar-hero.navbar-scrolled .navbar-links a:hover,
+.navbar-hero.navbar-scrolled .navbar-links a.active {
+    color: #2563eb;
+}
+
+.navbar-hero.navbar-scrolled .navbar-toggle span {
+    background-color: #1a1a2e;
+}
+
 
 /* Mobiilivalikko */
 .navbar-toggle {
@@ -152,7 +219,111 @@ body {
     flex-wrap: wrap;
 }
 
-/* Kompakti hero (alasivuille) */
+/* Uusi Hero-sektio taustakuvalla */
+.hero-main {
+    position: relative;
+    height: 580px;
+    background-image: url('images/IMG_6100.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.hero-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(10,27,46,0.15) 0%, rgba(10,27,46,0.5) 55%, rgba(10,27,46,0.92) 100%);
+    z-index: 1;
+}
+
+/* Sininen pystyviiva poistettu */
+
+.hero-main-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    width: 100%;
+    text-align: left;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: #2563eb;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.hero-main h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.hero-main h1::after {
+    display: none;
+}
+
+.hero-highlight {
+    color: #2563eb;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 600px;
+}
+
+.hero-main .hero-buttons {
+    justify-content: flex-start;
+}
+
+/* Stats-palkki */
+.stats-bar {
+    background-color: #0f2137;
+    padding: 40px 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Kompakti hero (alasivuille) - vanha, säilytetään varalta */
 .hero-compact {
     min-height: auto;
     padding: 140px 20px 60px;
@@ -166,6 +337,39 @@ body {
 .hero-compact p {
     font-size: 1.125rem;
     margin-bottom: 0;
+}
+
+/* Uusi page-banner alasivuille */
+.page-banner {
+    position: relative;
+    height: 280px;
+    background-color: #0A1B2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 72px;
+}
+
+/* Sininen pystyviiva poistettu page-bannerista */
+
+.page-banner-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.page-banner h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.page-banner p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
 }
 
 /* Napit */
@@ -443,7 +647,7 @@ body {
         display: flex;
     }
 
-    .navbar-links {
+    .navbar-right {
         display: none;
         position: absolute;
         top: 70px;
@@ -452,12 +656,31 @@ body {
         flex-direction: column;
         background-color: #ffffff;
         padding: 20px;
-        gap: 0;
+        gap: 16px;
         border-bottom: 1px solid #e5e7eb;
     }
 
-    .navbar-links.active {
+    .navbar-right.active {
         display: flex;
+    }
+
+    /* Hero-navbarin mobiilivalikko - aina valkoinen tausta */
+    .navbar-hero .navbar-right {
+        background-color: #ffffff;
+    }
+
+    .navbar-hero .navbar-right .navbar-links a {
+        color: #1a1a2e;
+    }
+
+    .navbar-hero .navbar-right .navbar-links a:hover,
+    .navbar-hero .navbar-right .navbar-links a.active {
+        color: #2563eb;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        gap: 0;
     }
 
     .navbar-links li {
@@ -465,8 +688,17 @@ body {
         border-bottom: 1px solid #f3f4f6;
     }
 
+    .navbar-hero .navbar-links li {
+        border-bottom: 1px solid #f3f4f6;
+    }
+
     .navbar-links li:last-child {
         border-bottom: none;
+    }
+
+    .btn-nav {
+        width: 100%;
+        text-align: center;
     }
 
     .hero h1 {
@@ -478,6 +710,46 @@ body {
     }
 
     .hero-compact h1 {
+        font-size: 2rem;
+    }
+
+    /* Page banner mobiililla */
+    .page-banner {
+        height: 220px;
+    }
+
+    .page-banner h1 {
+        font-size: 2rem;
+    }
+
+    .page-banner p {
+        font-size: 1rem;
+    }
+
+    /* Uusi hero mobiililla */
+    .hero-main {
+        height: 500px;
+    }
+
+    .hero-main h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-main-content {
+        padding-bottom: 40px;
+    }
+
+    /* Stats mobiililla */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .stat-number {
         font-size: 2rem;
     }
 
@@ -508,6 +780,31 @@ body {
         font-size: 2rem;
     }
 
+    .hero-main {
+        height: 450px;
+    }
+
+    .hero-main h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-main-content {
+        padding: 0 16px 32px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
     .section {
         padding: 60px 16px;
     }
@@ -519,6 +816,10 @@ body {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    .hero-main .hero-buttons {
+        align-items: flex-start;
     }
 
     .hero-buttons .btn {
@@ -543,6 +844,18 @@ body {
 .card-animated:nth-child(1) { transition-delay: 0s; }
 .card-animated:nth-child(2) { transition-delay: 0.15s; }
 .card-animated:nth-child(3) { transition-delay: 0.3s; }
+
+/* Fade-in animaatio sisältöelementeille */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* Nappi — pulse-efekti hover */
 .btn-primary {
@@ -578,9 +891,7 @@ body {
     transform: scaleX(1);
 }
 
-.navbar-links a.active::after {
-    transform: scaleX(1);
-}
+/* Active-tilan alleviivaus poistettu */
 
 /* Palvelukortit — suurenee hover */
 .cards-grid-3 .card {
@@ -591,4 +902,157 @@ body {
 .cards-grid-3 .card:hover {
     transform: scale(1.03) translateY(-4px);
     box-shadow: 0 16px 40px rgba(37, 99, 235, 0.15);
+}
+
+/* Täysleveä tunnelmakuva */
+.fullwidth-image {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.fullwidth-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Teksti-kuva -osiot */
+.content-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 80px calc((100% - 1200px) / 2 + 20px);
+    background-color: #f8f9fa;
+}
+
+.content-block.reversed {
+    background-color: #ffffff;
+}
+
+@media (max-width: 1240px) {
+    .content-block {
+        padding: 80px 20px;
+    }
+}
+
+.content-block-text h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+}
+
+.content-block-text p {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+.content-block-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.content-block-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.content-block-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Kuvagalleria (3 kuvaa vierekkäin) */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.image-gallery-item {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.image-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.image-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Responsiivisuus kuville */
+@media (max-width: 1024px) {
+    .content-block {
+        gap: 32px;
+    }
+
+    .content-block-image {
+        height: 300px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .fullwidth-image {
+        height: 300px;
+    }
+
+    .content-block {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 60px 20px;
+    }
+
+    .content-block-image {
+        height: 280px;
+    }
+
+    .content-block > .content-block-text {
+        order: 2;
+    }
+
+    .content-block > .content-block-image {
+        order: 1;
+    }
+
+    .content-block-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .fullwidth-image {
+        height: 220px;
+    }
+
+    .content-block {
+        padding: 40px 16px;
+    }
+
+    .content-block-image {
+        height: 220px;
+    }
 }
