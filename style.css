@@ -1375,4 +1375,44 @@ img {
     .footer p {
         font-size: 0.85rem;
     }
+
+    .invoice-table td {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Verkkolaskutustiedot */
+.invoice-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.invoice-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+
+.invoice-table tr:last-child td {
+    border-bottom: none;
+}
+
+.invoice-table td:first-child {
+    width: 45%;
+    color: #555;
+}
+
+.invoice-table td:last-child {
+    font-family: monospace;
+    user-select: all;
 }
