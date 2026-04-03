@@ -1,4 +1,4 @@
-// FibreCo Oy - Yhteinen skripti
+// Fibreco Oy - Uudistettu skripti
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobiilivalikon toiminnallisuus
@@ -28,6 +28,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Navbar scroll-efekti (etusivulla)
+    const navbar = document.querySelector('.navbar');
+    const isHeroPage = navbar && navbar.classList.contains('navbar-hero');
+    const isLightPage = navbar && navbar.classList.contains('light-page');
+
+    if (navbar && isHeroPage && !isLightPage) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 40) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        }, { passive: true });
+    }
+
+    // Scroll-reveal animaatiot
+    const revealElements = document.querySelectorAll('.reveal');
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+    fadeElements.forEach(el => revealObserver.observe(el));
+
     // Lomakkeen validointi
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
@@ -43,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 isValid = false;
                 nameInput.style.borderColor = '#ef4444';
             } else if (nameInput) {
-                nameInput.style.borderColor = '#d1d5db';
+                nameInput.style.borderColor = '#e2e8f0';
             }
 
             // Tarkista sähköposti
@@ -53,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     isValid = false;
                     emailInput.style.borderColor = '#ef4444';
                 } else {
-                    emailInput.style.borderColor = '#d1d5db';
+                    emailInput.style.borderColor = '#e2e8f0';
                 }
             }
 
@@ -62,42 +98,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 isValid = false;
                 messageInput.style.borderColor = '#ef4444';
             } else if (messageInput) {
-                messageInput.style.borderColor = '#d1d5db';
+                messageInput.style.borderColor = '#e2e8f0';
             }
 
             if (!isValid) {
                 event.preventDefault();
             }
         });
-    }
 
-    // Kortit animoituvat sisään kun tulevat näkyviin
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.card-animated').forEach(card => {
-        observer.observe(card);
-    });
-
-    // Fade-in animaatiot sisältöelementeille
-    document.querySelectorAll('.fade-in').forEach(element => {
-        observer.observe(element);
-    });
-
-    // Navbar scroll-efekti (etusivulla)
-    const navbarHero = document.querySelector('.navbar-hero');
-    if (navbarHero) {
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbarHero.classList.add('navbar-scrolled');
-            } else {
-                navbarHero.classList.remove('navbar-scrolled');
-            }
+        // Poista virheen korostus kun kenttää muokataan
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                this.style.borderColor = '#e2e8f0';
+            });
+            input.addEventListener('focus', function() {
+                this.style.borderColor = '#1E5FCC';
+            });
+            input.addEventListener('blur', function() {
+                if (this.value.trim() !== '') {
+                    this.style.borderColor = '#e2e8f0';
+                }
+            });
         });
     }
+
+    // Smooth scroll anchor-linkeille
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });

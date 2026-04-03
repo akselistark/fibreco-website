@@ -12,14 +12,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fibreco Oy on vuonna 2024 perustettu valokuiturakentamisen yritys. Tiimimme kokemuksella toteutamme teletyöt ja kaivuutyöt laadukkaasti ympäri Suomen.">
+    <meta property="og:title" content="Tietoa meistä – Fibreco Oy">
+    <meta property="og:description" content="Fibreco Oy on vuonna 2024 perustettu valokuiturakentamisen yritys. Tiimimme taustalla on vuosien käytännön kokemus.">
+    <meta property="og:type" content="website">
     <title>Tietoa meistä – Fibreco Oy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar light-page">
         <div class="container">
-            <a href="index.html" class="navbar-logo">
-                <img src="images/fibreco_logo2.png" alt="FibreCo Oy">
+            <a href="index.html" class="navbar-logo" aria-label="Fibreco etusivu">
+                <img src="images/fibreco_logo2.png" alt="FibreCo Oy" loading="lazy">
             </a>
             <button class="navbar-toggle" aria-label="Avaa valikko">
                 <span></span>
@@ -28,54 +31,64 @@
             </button>
             <div class="navbar-right">
                 <ul class="navbar-links">
-                    <li><a href="index.html">Etusivu</a></li>
-                    <li><a href="tietoa-meista.html" class="active">Tietoa meistä</a></li>
-                    <li><a href="yhteystiedot.html">Yhteystiedot</a></li>
+                    <li><a href="index.html" aria-label="Etusivu">Etusivu</a></li>
+                    <li><a href="tietoa-meista.html" class="active" aria-label="Tietoa meistä">Tietoa meistä</a></li>
+                    <li><a href="yhteystiedot.html" aria-label="Yhteystiedot">Yhteystiedot</a></li>
                 </ul>
-                <a href="yhteystiedot.html" class="btn btn-primary btn-nav">Pyydä tarjous</a>
+                <a href="yhteystiedot.html" class="btn-nav">Pyydä tarjous</a>
             </div>
         </div>
     </nav>
 
-    <section class="page-banner">
-        <div class="page-banner-content">
-            <h1>Tietoa meistä</h1>
-            <p>Valokuituverkkoja rakentamassa vuodesta 2024</p>
-        </div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1 class="reveal">Tietoa meistä</h1>
+        <p class="reveal reveal-delay-1">Valokuituverkkoja rakentamassa vuodesta 2024</p>
     </section>
 
+    <!-- Intro Section -->
     <section class="section section-light">
         <div class="container">
-            <div class="intro-section fade-in">
+            <div class="intro-section reveal">
                 <p>Fibreco Oy on vuonna 2024 perustettu valokuiturakentamisen yritys. Tiimimme taustalla on vuosien käytännön kokemus vaativista verkkorakennusprojekteista.</p>
                 <p>Palvelemme teleoperaattoreita, kuntia ja yksityisiä toimijoita ympäri Suomen. Toimitamme projektit kokonaisvastuullisesti aikataulussa ja sovitulla laadulla.</p>
             </div>
-            <div class="image-gallery fade-in">
-                <div class="image-gallery-item">
-                    <img src="images/kaappi.jpg" alt="Fibreco kaappi">
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid reveal">
+                <div class="gallery-img">
+                    <img src="images/kaappi.jpg" alt="Fibreco kaappi" loading="lazy">
                 </div>
-                <div class="image-gallery-item">
-                    <img src="images/IMG_5474.jpeg" alt="Fibreco työmaa">
+                <div class="gallery-img">
+                    <img src="images/IMG_5474.jpeg" alt="Fibreco työmaa" loading="lazy">
                 </div>
-                <div class="image-gallery-item">
-                    <img src="images/IMG_3447.jpeg" alt="Fibreco kalusto">
+                <div class="gallery-img">
+                    <img src="images/IMG_3447.jpeg" alt="Fibreco kalusto" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section section-white">
+    <!-- Features Section -->
+    <section class="features-section">
         <div class="container">
-            <div class="cards-grid cards-grid-3">
-                <div class="card card-animated">
-                    <h3>Perustettu 2024</h3>
-                    <p>Perustettu 2024 alan ammattilaisten toimesta. Tuomme mukanamme modernit menetelmät ja ketterän toimintatavan.</p>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-number">2024</div>
+                    <h3>Perustettu</h3>
+                    <p>Perustettu alan ammattilaisten toimesta. Tuomme mukanamme modernit menetelmät ja ketterän toimintatavan.</p>
                 </div>
-                <div class="card card-animated">
-                    <h3>Toimialueena koko Suomi</h3>
+                <div class="feature-card reveal reveal-delay-1">
+                    <div class="feature-number">100%</div>
+                    <h3>Koko Suomi</h3>
                     <p>Toteutamme urakat laadukkaasti ja aikataulussa koko Suomen alueella.</p>
                 </div>
-                <div class="card card-animated">
+                <div class="feature-card reveal reveal-delay-2">
+                    <div class="feature-number">A–Ö</div>
                     <h3>Avaimet käteen</h3>
                     <p>Hoidamme urakat alusta loppuun. Suunnittelu, asennus ja dokumentointi kuuluvat kaikki kokonaistoimitukseen.</p>
                 </div>
@@ -83,16 +96,67 @@
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <p>Kiinnostuitko? Ota yhteyttä.</p>
-            <a href="yhteystiedot.html" class="btn btn-primary">Ota yhteyttä</a>
+            <div class="cta-inner reveal">
+                <div class="cta-text">
+                    <p class="section-label">Aloita yhteistyö</p>
+                    <h2 class="cta-title">Kiinnostuitko?</h2>
+                    <p class="cta-description">
+                        Kerro meille projektistasi ja olemme yhteydessä pian.
+                    </p>
+                </div>
+                <div class="cta-actions">
+                    <a href="yhteystiedot.html" class="btn-primary">
+                        Ota yhteyttä
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <p>&copy; 2024–2026 Fibreco Oy · Y-tunnus: 3429659-1 · Kaikki oikeudet pidätetään.</p>
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <img src="images/fibreco_logo2.png" alt="Fibreco Oy" style="height:32px; filter: brightness(0) invert(1);" loading="lazy">
+                    <p>Valokuituverkkojen rakennus- ja asiantuntijapalvelut ympäri Suomen. Toimitamme urakat laadukkaasti ja aikataulussa.</p>
+                    <p class="y-tunnus">Y-tunnus: 3429659-1</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Palvelut</h4>
+                    <ul>
+                        <li><a href="index.html#palvelut">Teletyöt</a></li>
+                        <li><a href="index.html#palvelut">Kaivuutyöt</a></li>
+                        <li><a href="index.html#palvelut">Viankorjaus ja päivystys</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Yhteystiedot</h4>
+                    <div class="contact-item">
+                        <span class="contact-role">Toimitusjohtaja</span>
+                        <span class="contact-name">Akseli Stark</span>
+                        <span class="contact-detail"><a href="tel:0443639804">044 363 9804</a></span>
+                        <span class="contact-detail"><a href="mailto:akseli.stark@fibreco.fi">akseli.stark@fibreco.fi</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-role">Työnjohto</span>
+                        <span class="contact-name">Petja Nissilä</span>
+                        <span class="contact-detail"><a href="tel:0445557743">044 555 7743</a></span>
+                        <span class="contact-detail"><a href="mailto:petja.nissila@fibreco.fi">petja.nissila@fibreco.fi</a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2024–2026 Fibreco Oy · Kaikki oikeudet pidätetään.</span>
+                <a href="yhteystiedot.html#verkkolasku">Verkkolaskutustiedot</a>
+            </div>
         </div>
     </footer>
 
