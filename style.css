@@ -146,17 +146,51 @@ img {
   filter: brightness(0) invert(1);
 }
 
+.navbar-hero .navbar-links a {
+  color: rgba(255,255,255,0.85);
+}
+
+.navbar-hero .navbar-links a:hover,
+.navbar-hero .navbar-links a.active {
+  color: #fff;
+}
+
+.navbar-hero .navbar-links a::after {
+  background: var(--color-blue-glow);
+}
+
+.navbar-hero .navbar-toggle span {
+  background-color: #fff;
+}
+
 /* Navbar scrolled-tila */
 .navbar.scrolled,
 .navbar-hero.navbar-scrolled {
-  background: rgba(10, 22, 40, 0.92);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08);
 }
 
 .navbar-hero.navbar-scrolled .navbar-logo img {
-  filter: brightness(0) invert(1);
+  filter: none;
+}
+
+.navbar-hero.navbar-scrolled .navbar-links a {
+  color: var(--color-text-dark);
+}
+
+.navbar-hero.navbar-scrolled .navbar-links a:hover,
+.navbar-hero.navbar-scrolled .navbar-links a.active {
+  color: var(--color-blue);
+}
+
+.navbar-hero.navbar-scrolled .navbar-links a::after {
+  background: var(--color-blue);
+}
+
+.navbar-hero.navbar-scrolled .navbar-toggle span {
+  background-color: var(--color-text-dark);
 }
 
 /* Navbar - alasivut (valkoinen tausta) */
@@ -1437,7 +1471,8 @@ footer {
     display: flex;
   }
 
-  .navbar.light-page .navbar-right {
+  .navbar.light-page .navbar-right,
+  .navbar-hero .navbar-right {
     background: #fff;
   }
 
@@ -1454,7 +1489,8 @@ footer {
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
-  .navbar.light-page .navbar-links li {
+  .navbar.light-page .navbar-links li,
+  .navbar-hero .navbar-links li {
     border-bottom-color: #f1f5f9;
   }
 
